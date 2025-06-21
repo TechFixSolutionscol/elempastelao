@@ -27,7 +27,7 @@
         .header {
             text-align: center;
             margin-bottom: 50px;
-            background: linear-gradient(45deg, #d4a574, #b8956a);
+            background: linear-gradient(45deg, #c56804, #c56804);
             color: white;
             padding: 40px 20px;
             border-radius: 20px;
@@ -155,7 +155,7 @@
             font-size: 2em;
             font-weight: bold;
             color: #d4a574;
-            background: linear-gradient(45deg, #d4a574, #b8956a);
+            background: linear-gradient(45deg, #241301, #241301);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -190,12 +190,12 @@
             text-align: center;
             font-size: 0.9em;
             color: #2c1810;
-            border: 2px solid #d4a574;
+            border: 2px solid #bd670b;
             transition: all 0.3s ease;
         }
 
         .sabor-item:hover {
-            background: linear-gradient(45deg, #d4a574, #b8956a);
+            background: linear-gradient(45deg, #c56804, #c56804);
             color: white;
             transform: scale(1.05);
         }
@@ -268,7 +268,10 @@
     
     <div class="container">
         <div class="header">
-            <h1>🥟 EL EMPASTELAO</h1>
+            <h1>
+                <img src="img/logo.png" alt="El Empastelao Logo" style="height: 70px; vertical-align: middle; margin-right: px;">
+                EL EMPASTELAO
+            </h1>
             <p>Sabores auténticos en cada bocado</p>
         </div>
 
@@ -276,7 +279,12 @@
             <!-- Mini Empanadas Section -->
             <div class="product-card mini-empanadas">
                 <div class="product-header">
-                    <div class="product-icon">🥟</div>
+                    <div class="product-icon" style="overflow: visible; position: relative;">
+                        <img src="img/empanada.png" alt="Empanada"
+                             style="width: 60px; height: 60px; object-fit: contain; border-radius: 50%; background: #fff; transition: transform 0.3s cubic-bezier(.4,2,.6,1); position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1); z-index: 2;"
+                             onmouseover="this.style.transform='translate(-50%, -50%) scale(2.2)'"
+                             onmouseout="this.style.transform='translate(-50%, -50%) scale(1)'">
+                    </div>
                     <div class="product-title">Mini Empanadas</div>
                 </div>
                 <div class="product-description">
@@ -302,7 +310,12 @@
             <!-- Mini Pastel -->
             <div class="product-card mini-empanadas">
                 <div class="product-header">
-                    <div class="product-icon">🍗</div>
+                     <div class="product-icon" style="overflow: visible; position: relative;">
+                        <img src="img/pasteles.png" alt="Empanada"
+                             style="width: 60px; height: 60px; object-fit: contain; border-radius: 50%; background: #fff; transition: transform 0.3s cubic-bezier(.4,2,.6,1); position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1); z-index: 2;"
+                             onmouseover="this.style.transform='translate(-50%, -50%) scale(2.2)'"
+                             onmouseout="this.style.transform='translate(-50%, -50%) scale(1)'">
+                    </div>
                     <div class="product-title">Mini Pastel de Pollo</div>
                 </div>
                 <div class="product-description">
@@ -316,7 +329,12 @@
             <!-- Palitos de Queso -->
             <div class="product-card palitos">
                 <div class="product-header">
-                    <div class="product-icon">🧀</div>
+                     <div class="product-icon" style="overflow: visible; position: relative;">
+                        <img src="img/palitos.png" alt="Empanada"
+                             style="width: 60px; height: 60px; object-fit: contain; border-radius: 50%; background: #fff; transition: transform 0.3s cubic-bezier(.4,2,.6,1); position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1); z-index: 2;"
+                             onmouseover="this.style.transform='translate(-50%, -50%) scale(2.2)'"
+                             onmouseout="this.style.transform='translate(-50%, -50%) scale(1)'">
+                    </div>
                     <div class="product-title">Palitos de Queso</div>
                 </div>
                 <div class="product-description">
@@ -340,7 +358,7 @@
         <div class="contact-section">
             <h2>📱 ¡Haz tu pedido!</h2>
             <p>Contáctanos para disfrutar de nuestros deliciosos productos en tus eventos</p>
-            <p style="font-size: 1.4em; margin-top: 20px; color: #d4a574;">
+            <p style="font-size: 1.4em; margin-top: 20px; color: #cf710d;">
                 <strong>El Empastelao - Sabor que conquista</strong>
                 <strong> | </strong>
                 <strong>Teléfono: 304-303-75-26</strong>
@@ -424,6 +442,56 @@
             </a></svg>
                 </span>
             </a></svg>
+            <a href="https://www.instagram.com/elempastelao" target="_blank" class="instagram-float" aria-label="Instagram">
+                <span class="instagram-icon">
+                    <svg viewBox="0 0 448 512">
+                        <defs>
+                            <radialGradient id="ig-gradient" cx="30%" cy="107%" r="150%" fx="30%" fy="107%">
+                                <stop offset="0%" stop-color="#fdf497"/>
+                                <stop offset="5%" stop-color="#fdf497"/>
+                                <stop offset="45%" stop-color="#fd5949"/>
+                                <stop offset="60%" stop-color="#d6249f"/>
+                                <stop offset="90%" stop-color="#285AEB"/>
+                            </radialGradient>
+                        </defs>
+                        <rect x="32" y="32" width="384" height="448" rx="90" fill="url(#ig-gradient)"/>
+                        <path d="M224 144c-44.2 0-80 35.8-80 80s35.8 80 80 80 80-35.8 80-80-35.8-80-80-80zm0 132c-28.7 0-52-23.3-52-52s23.3-52 52-52 52 23.3 52 52-23.3 52-52 52zm85-136c0 10.5-8.5 19-19 19s-19-8.5-19-19 8.5-19 19-19 19 8.5 19 19zm76 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S371.3 33.7 336 32c-35.3-1.7-141.3-1.7-176.6 0-35.3 1.7-66.7 9.9-92.9 36.2S33.7 140.7 32 176c-1.7 35.3-1.7 141.3 0 176.6 1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2c35.3 1.7 141.3 1.7 176.6 0 35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 1.7-141.3 0-176.6zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5C109.1 33.7 178.9 36.3 212 36.3s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z" fill="#fff"/>
+                    </svg>
+                </span>
+            </a>
+            <style>
+            .instagram-float {
+                display: inline-block;
+                margin-right: 18px;
+                vertical-align: middle;
+                text-decoration: none;
+                position: relative;
+                top: 3px;
+                animation: instagram-bounce 1.5s infinite;
+            }
+            .instagram-icon {
+                width: 32px;
+                height: 32px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .instagram-float:hover .instagram-icon svg {
+                transform: scale(1.15) rotate(10deg);
+            }
+            .instagram-icon svg {
+                width: 100%;
+                height: 100%;
+                transition: transform 0.2s;
+                display: block;
+            }
+            @keyframes instagram-bounce {
+                0%, 100% { transform: translateY(0);}
+                20% { transform: translateY(-10px);}
+                40% { transform: translateY(-5px);}
+                60% { transform: translateY(-12px);}
+                80% { transform: translateY(-3px);}
+            }
+            </style>
                 </a>
             </p>
         </div>
