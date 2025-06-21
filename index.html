@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Empastelao - Catálogo Gourmet</title>
+    <title>El Empastelao - Inicio</title>
     <style>
         * {
             margin: 0;
@@ -12,342 +12,320 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
-            color: #2c1810;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-            background: linear-gradient(45deg, #d4a574, #b8956a);
-            color: white;
-            padding: 40px 20px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            position: relative;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9500 0%, #ff7700 50%, #ff6600 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255,255,255,0.05) 10px,
-                rgba(255,255,255,0.05) 20px
-            );
-            animation: shimmer 20s linear infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .header h1 {
-            font-size: 3.5em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             position: relative;
-            z-index: 1;
         }
 
-        .header p {
-            font-size: 1.3em;
-            opacity: 0.95;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            border: 3px solid transparent;
-            background-clip: padding-box;
-        }
-
-        .product-card::before {
+        /* Animación de fondo */
+        body::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, #d4a574, #f4e4c1, #d4a574);
-            z-index: -1;
-            border-radius: 20px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float-bg 10s ease-in-out infinite;
         }
 
-        .product-card::after {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            right: 3px;
-            bottom: 3px;
-            background: white;
-            border-radius: 17px;
-            z-index: -1;
+        @keyframes float-bg {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
-        .product-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 60px 40px;
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            z-index: 1;
+            animation: slideIn 1s ease-out;
         }
 
-        .product-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0e6d2;
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .product-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #d4a574, #b8956a);
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
             border-radius: 50%;
+            margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            font-size: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            letter-spacing: 2px;
+        }
+
+        .slogan {
             font-size: 24px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-
-        .product-title {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #2c1810;
-            flex: 1;
-        }
-
-        .product-price {
-            font-size: 2em;
-            font-weight: bold;
-            color: #d4a574;
-            background: linear-gradient(45deg, #d4a574, #b8956a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .product-description {
-            color: #5a4a3a;
-            font-size: 1.1em;
-            margin-bottom: 20px;
+            color: #ffe4b3;
+            margin-bottom: 40px;
             font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .mini-empanadas {
-            background: linear-gradient(135deg, #fff8f0 0%, #f0e6d2 100%);
+        .description {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 50px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
-        .palitos {
-            background: linear-gradient(135deg, #f8f4e6 0%, #ede2c7 100%);
+        .buttons-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .sabores-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .sabor-item {
-            background: linear-gradient(45deg, #f4e4c1, #e8ddd4);
-            padding: 10px 15px;
-            border-radius: 25px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #2c1810;
-            border: 2px solid #d4a574;
+        .nav-button {
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .sabor-item:hover {
-            background: linear-gradient(45deg, #d4a574, #b8956a);
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-button:hover::before {
+            left: 100%;
+        }
+
+        .menu-button {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             color: white;
-            transform: scale(1.05);
         }
 
-        .contact-section {
-            background: linear-gradient(135deg, #2c1810 0%, #3d2817 100%);
+        .menu-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.4);
+        }
+
+        .events-button {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
             color: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin-top: 50px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
-        .contact-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #d4a574;
+        .events-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(220, 53, 69, 0.4);
         }
 
-        .contact-section p {
-            font-size: 1.2em;
+        .button-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
+        }
+
+        .footer-info {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
             margin-bottom: 10px;
         }
 
-        .decorative-element {
+        .phone {
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .phone:hover {
+            color: #ffe4b3;
+        }
+
+        .floating-elements {
             position: absolute;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.1), transparent);
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
+            overflow: hidden;
         }
 
-        .decorative-element:nth-child(1) {
-            top: 10%;
-            left: 5%;
-            animation: float 6s ease-in-out infinite;
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '🥟';
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.1;
+            animation: float-around 15s linear infinite;
         }
 
-        .decorative-element:nth-child(2) {
+        .floating-elements::before {
+            top: 20%;
+            left: 10%;
+            animation-delay: -5s;
+        }
+
+        .floating-elements::after {
             top: 70%;
             right: 10%;
-            animation: float 8s ease-in-out infinite reverse;
+            animation-delay: -10s;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
+        @keyframes float-around {
+            0% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5em;
+            .container {
+                padding: 40px 20px;
+                margin: 20px;
             }
             
-            .products-grid {
-                grid-template-columns: 1fr;
+            .brand-name {
+                font-size: 36px;
             }
             
-            .product-card {
-                padding: 20px;
+            .slogan {
+                font-size: 20px;
+            }
+            
+            .description {
+                font-size: 16px;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-button {
+                padding: 15px 30px;
+                font-size: 18px;
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="decorative-element"></div>
-    <div class="decorative-element"></div>
+    <div class="floating-elements"></div>
     
     <div class="container">
-        <div class="header">
-            <h1>🥟 EL EMPASTELAO</h1>
-            <p>Sabores auténticos en cada bocado</p>
+        <div class="logo">👨‍🍳</div>
+        
+        <h1 class="brand-name">EL EMPASTELAO</h1>
+        
+        <p class="slogan">"El antojo empieza aquí"</p>
+        
+        <p class="description">
+            Bienvenido a la casa del sabor auténtico. Donde cada bocado es una explosión de tradición y cada empanada cuenta una historia de pasión culinaria.
+        </p>
+        
+        <div class="buttons-container">
+            <a href="empastelao_menu.html" class="nav-button menu-button">
+                <span class="button-icon">🍽️</span>
+                Nuestro Menú
+            </a>
+            
+            <a href="menueventos.html" class="nav-button events-button">
+                <span class="button-icon">🎉</span>
+                Eventos
+            </a>
         </div>
-
-        <div class="products-grid">
-            <!-- Mini Empanadas Section -->
-            <div class="product-card mini-empanadas">
-                <div class="product-header">
-                    <div class="product-icon">🥟</div>
-                    <div class="product-title">Mini Empanadas</div>
-                </div>
-                <div class="product-description">
-                    Deliciosas mini empanadas doraditas y crujientes, perfectas para compartir
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 10px; background: rgba(212, 165, 116, 0.1); border-radius: 10px;">
-                        <span style="font-weight: bold;">🥔 Papa</span>
-                        <span class="product-price" style="font-size: 1.5em;">$900</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 10px; background: rgba(212, 165, 116, 0.1); border-radius: 10px;">
-                        <span style="font-weight: bold;">🥩 Carne</span>
-                        <span class="product-price" style="font-size: 1.5em;">$1,000</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(212, 165, 116, 0.1); border-radius: 10px;">
-                        <span style="font-weight: bold;">🧀 Queso</span>
-                        <span class="product-price" style="font-size: 1.5em;">$1,000</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mini Pastel -->
-            <div class="product-card mini-empanadas">
-                <div class="product-header">
-                    <div class="product-icon">🍗</div>
-                    <div class="product-title">Mini Pastel de Pollo</div>
-                </div>
-                <div class="product-description">
-                    Suave y jugoso pastel de pollo en versión mini, irresistible
-                </div>
-                <div style="text-align: center; padding: 20px; background: rgba(212, 165, 116, 0.1); border-radius: 15px;">
-                    <div class="product-price">$1,000</div>
-                </div>
-            </div>
-
-            <!-- Palitos de Queso -->
-            <div class="product-card palitos">
-                <div class="product-header">
-                    <div class="product-icon">🧀</div>
-                    <div class="product-title">Palitos de Queso</div>
-                </div>
-                <div class="product-description">
-                    Crujientes palitos con deliciosos rellenos, perfectos para cualquier momento
-                </div>
-                
-                <div style="text-align: center; margin-bottom: 20px; padding: 15px; background: rgba(212, 165, 116, 0.15); border-radius: 15px;">
-                    <div class="product-price">$1,500</div>
-                    <div style="font-size: 0.9em; color: #5a4a3a; margin-top: 5px;">Cualquier sabor</div>
-                </div>
-
-                <div class="sabores-grid">
-                    <div class="sabor-item">🍯 Bocadillo Queso</div>
-                    <div class="sabor-item">🍫 Chocolate Queso</div>
-                    <div class="sabor-item">🧀 Puro Queso</div>
-                    <div class="sabor-item">🥓 Jamón y Queso</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="contact-section">
-            <h2>📱 ¡Haz tu pedido!</h2>
-            <p>Contáctanos para disfrutar de nuestros deliciosos productos en tus eventos</p>
-            <p style="font-size: 1.4em; margin-top: 20px; color: #d4a574;">
-                <strong>El Empastelao - Sabor que conquista</strong>
-                <strong> | </strong>
-                <strong>Teléfono: 304-303-75-26</strong>
-                <a href="https://wa.me/573043037526" target="_blank" style="display: inline-flex; align-items: center; background: #25D366; color: white; padding: 10px 18px; border-radius: 30px; font-size: 1.1em; font-weight: bold; text-decoration: none; margin-left: 15px; box-shadow: 0 4px 12px rgba(37,211,102,0.15); transition: background 0.2s;">
-                    <span style="font-size: 1.4em; margin-right: 8px;">💬</span> WhatsApp
-                </a>
-            </p>
+        
+        <div class="footer-info">
+            <p class="contact-info">¿Tienes antojo? ¡Llámanos!</p>
+            <a href="tel:+573043037526" class="phone">📞 +57 304 303 7526</a>
         </div>
     </div>
 </body>
