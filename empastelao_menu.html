@@ -130,11 +130,38 @@
         }
 
         .combo-image::after {
-            content: '🥟';
+            content: '';
+            background-image: url('img/combo1.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            opacity: 0.50;
             position: absolute;
             animation: float 3s ease-in-out infinite;
         }
-
+        .combo-image2::after {
+            content: '';
+            background-image:  url('img/combo2.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            opacity: 0.50;
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+        }
+        .combo-image3::after {
+            content: '';
+            background-image:  url('img/combo3.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            opacity: 0.50;
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+        }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -274,7 +301,7 @@
         <div class="combos-grid">
             <div class="combo-card">
                 <div class="price-tag">$11K</div>
-                <div class="combo-image"></div>
+                <div class="combo-image combo-image1"></div>
                 <h2 class="combo-title">Combo 1 - Pa'l Antojao</h2>
                 <p class="combo-description">Pa' esos que no aguantan el antojo ni cinco</p>
                 <ul class="combo-items">
@@ -286,7 +313,7 @@
 
             <div class="combo-card">
                 <div class="price-tag">$10K</div>
-                <div class="combo-image"></div>
+                <div class="combo-image combo-image2"></div>
                 <h2 class="combo-title">Combo 2 - El Pecaito</h2>
                 <p class="combo-description">Pa' picar sin remordimiento, pues mijo</p>
                 <ul class="combo-items">
@@ -298,7 +325,7 @@
 
             <div class="combo-card">
                 <div class="price-tag">$25K</div>
-                <div class="combo-image"></div>
+                <div class="combo-image combo-image3"></div>
                 <h2 class="combo-title">Combo 3 - Familiar Pa' la Gallada</h2>
                 <p class="combo-description">Pa' que todos coman sabroso sin pelear por el último</p>
                 <ul class="combo-items">
@@ -328,6 +355,55 @@
                 <div class="delivery-icon">🏍️</div>
                 <p>Llevamos el antojo hasta tu casa</p>
                 <div class="phone-number">+57 3043037526</div>
+                </div>
+            </div>
+        </div>
+        <!-- Botón flotante de WhatsApp -->
+        <a href="https://wa.me/573043037526" class="whatsapp-float" target="_blank" aria-label="Chatea por WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+        </a>
+        <style>
+            .whatsapp-float {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                z-index: 1000;
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+                background: #25d366;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: bounce 1.5s infinite;
+                transition: box-shadow 0.2s;
+            }
+            .whatsapp-float:hover {
+                box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+                background: #1ebe57;
+            }
+            .whatsapp-float img {
+                width: 38px;
+                height: 38px;
+            }
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0);}
+                50% { transform: translateY(-18px);}
+            }
+            @media (max-width: 600px) {
+                .whatsapp-float {
+                    width: 50px;
+                    height: 50px;
+                    right: 15px;
+                    bottom: 15px;
+                }
+                .whatsapp-float img {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+        </style>
             </div>
         </div>
     </div>
