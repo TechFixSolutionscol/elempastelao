@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Empastelao - Catálogo Gourmet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
+            color: #2c1810;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, #d4a574, #b8956a);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #d4a574, #f4e4c1, #d4a574);
+            z-index: -1;
+            border-radius: 20px;
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            background: white;
+            border-radius: 17px;
+            z-index: -1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .product-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0e6d2;
+        }
+
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #d4a574, #b8956a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 24px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .product-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c1810;
+            flex: 1;
+        }
+
+        .product-price {
+            font-size: 2em;
+            font-weight: bold;
+            color: #d4a574;
+            background: linear-gradient(45deg, #d4a574, #b8956a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-description {
+            color: #5a4a3a;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .mini-empanadas {
+            background: linear-gradient(135deg, #fff8f0 0%, #f0e6d2 100%);
+        }
+
+        .palitos {
+            background: linear-gradient(135deg, #f8f4e6 0%, #ede2c7 100%);
+        }
+
+        .sabores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .sabor-item {
+            background: linear-gradient(45deg, #f4e4c1, #e8ddd4);
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #2c1810;
+            border: 2px solid #d4a574;
+            transition: all 0.3s ease;
+        }
+
+        .sabor-item:hover {
+            background: linear-gradient(45deg, #d4a574, #b8956a);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #2c1810 0%, #3d2817 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #d4a574;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .decorative-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .decorative-element:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .decorative-element:nth-child(2) {
+            top: 70%;
+            right: 10%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-element"></div>
+    <div class="decorative-element"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🥟 EL EMPASTELAO</h1>
+            <p>Sabores auténticos en cada bocado</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Mini Empanadas Section -->
+            <div class="product-card mini-empanadas">
+                <div class="product-header">
+                    <div class="product-icon">🥟</div>
+                    <div class="product-title">Mini Empanadas</div>
+                </div>
+                <div class="product-description">
+                    Deliciosas mini empanadas doraditas y crujientes, perfectas para compartir
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 10px; background: rgba(212, 165, 116, 0.1); border-radius: 10px;">
+                        <span style="font-weight: bold;">🥔 Papa</span>
+                        <span class="product-price" style="font-size: 1.5em;">$900</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 10px; background: rgba(212, 165, 116, 0.1); border-radius: 10px;">
+                        <span style="font-weight: bold;">🥩 Carne</span>
+                        <span class="product-price" style="font-size: 1.5em;">$1,000</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(212, 165, 116, 0.1); border-radius: 10px;">
+                        <span style="font-weight: bold;">🧀 Queso</span>
+                        <span class="product-price" style="font-size: 1.5em;">$1,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini Pastel -->
+            <div class="product-card mini-empanadas">
+                <div class="product-header">
+                    <div class="product-icon">🍗</div>
+                    <div class="product-title">Mini Pastel de Pollo</div>
+                </div>
+                <div class="product-description">
+                    Suave y jugoso pastel de pollo en versión mini, irresistible
+                </div>
+                <div style="text-align: center; padding: 20px; background: rgba(212, 165, 116, 0.1); border-radius: 15px;">
+                    <div class="product-price">$1,000</div>
+                </div>
+            </div>
+
+            <!-- Palitos de Queso -->
+            <div class="product-card palitos">
+                <div class="product-header">
+                    <div class="product-icon">🧀</div>
+                    <div class="product-title">Palitos de Queso</div>
+                </div>
+                <div class="product-description">
+                    Crujientes palitos con deliciosos rellenos, perfectos para cualquier momento
+                </div>
+                
+                <div style="text-align: center; margin-bottom: 20px; padding: 15px; background: rgba(212, 165, 116, 0.15); border-radius: 15px;">
+                    <div class="product-price">$1,500</div>
+                    <div style="font-size: 0.9em; color: #5a4a3a; margin-top: 5px;">Cualquier sabor</div>
+                </div>
+
+                <div class="sabores-grid">
+                    <div class="sabor-item">🍯 Bocadillo Queso</div>
+                    <div class="sabor-item">🍫 Chocolate Queso</div>
+                    <div class="sabor-item">🧀 Puro Queso</div>
+                    <div class="sabor-item">🥓 Jamón y Queso</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>📱 ¡Haz tu pedido!</h2>
+            <p>Contáctanos para disfrutar de nuestros deliciosos productos</p>
+            <p style="font-size: 1.4em; margin-top: 20px; color: #d4a574;">
+                <strong>El Empastelao - Sabor que conquista</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
