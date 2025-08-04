@@ -204,7 +204,18 @@
             animation: float 3s ease-in-out infinite;
             border-radius: 20px;
         }
-      
+        .combo-image7::after {
+            content: '';
+            background-image:  url('img/palitos.png');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            border-radius: 20px;
+        }
         
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
@@ -307,6 +318,35 @@
             margin-top: 15px;
         }
 
+        /* Estilos para el botón de regreso */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #8B4513;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            color: #ff7700;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -329,10 +369,23 @@
             .combo-card {
                 padding: 20px;
             }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Botón de regreso al index -->
+    <a href="index.html" class="back-button" aria-label="Volver al inicio">
+        <span>←</span>
+    </a>
+    
     <div class="container">
         <header class="header">
         <div class="logo">
@@ -399,6 +452,16 @@
                 <ul class="combo-items">
                     <li>Res y pollo</li>
                     <li>Aderezos de la casa a escogencia</li>
+                </ul>
+            </div>
+            <div class="combo-card">
+                <div class="price-tag">$ 1.5k</div>
+                <div class="combo-image combo-image7" style="position: relative;"></div>
+                <h2 class="combo-title">PALITOS DE QUESO</h2>
+                <p class="combo-description">Pa'saborear en cualquier momento</p>
+                <ul class="combo-items">
+                    <li>Full queso</li>
+                    <li>Apanado con queso,platano maduro y bocadillo</li>
                 </ul>
             </div>
         </div>
