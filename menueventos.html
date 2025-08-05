@@ -12,10 +12,29 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
-            color: #2c1810;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9500 0%, #ff7700 50%, #ff6600 100%);
+            min-height: 100vh;
+            color: #333;
+            position: relative;
+        }
+
+        /* Animación de fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float-bg 10s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        @keyframes float-bg {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .container {
@@ -26,53 +45,47 @@
 
         .header {
             text-align: center;
-            margin-bottom: 50px;
-            background: linear-gradient(45deg, #c56804, #c56804);
-            color: white;
-            padding: 40px 20px;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255,255,255,0.05) 10px,
-                rgba(255,255,255,0.05) 20px
-            );
-            animation: shimmer 20s linear infinite;
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: #8B4513;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
         }
 
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .header h1 {
-            font-size: 3.5em;
+        .brand-name {
+            font-size: 24px;
             font-weight: bold;
+            color: #8B4513;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
         }
 
-        .header p {
-            font-size: 1.3em;
-            opacity: 0.95;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
+        .slogan {
+            font-size: 36px;
+            font-weight: bold;
+            color: #501903;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .menu-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .products-grid {
@@ -83,15 +96,18 @@
         }
 
         .product-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             position: relative;
             overflow: hidden;
-            border: 3px solid transparent;
-            background-clip: padding-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
         .product-card::before {
@@ -100,27 +116,8 @@
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #d4a574, #f4e4c1, #d4a574);
-            z-index: -1;
-            border-radius: 20px;
-        }
-
-        .product-card::after {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            right: 3px;
-            bottom: 3px;
-            background: white;
-            border-radius: 17px;
-            z-index: -1;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            height: 5px;
+            background: linear-gradient(90deg, #ff9500, #ff7700);
         }
 
         .product-header {
@@ -134,7 +131,7 @@
         .product-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(45deg, #d4a574, #b8956a);
+            background: linear-gradient(45deg, #ffb347, #ffa500);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -145,35 +142,23 @@
         }
 
         .product-title {
-            font-size: 1.8em;
+            font-size: 22px;
             font-weight: bold;
-            color: #2c1810;
+            color: #333;
             flex: 1;
         }
 
         .product-price {
-            font-size: 2em;
+            font-size: 24px;
             font-weight: bold;
-            color: #d4a574;
-            background: linear-gradient(45deg, #241301, #241301);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ff7700;
         }
 
         .product-description {
-            color: #5a4a3a;
-            font-size: 1.1em;
+            color: #666;
+            font-size: 16px;
             margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .mini-empanadas {
-            background: linear-gradient(135deg, #fff8f0 0%, #f0e6d2 100%);
-        }
-
-        .palitos {
-            background: linear-gradient(135deg, #f8f4e6 0%, #ede2c7 100%);
+            line-height: 1.4;
         }
 
         .sabores-grid {
@@ -184,24 +169,24 @@
         }
 
         .sabor-item {
-            background: linear-gradient(45deg, #f4e4c1, #e8ddd4);
+            background: linear-gradient(45deg, #fff5e6, #ffe4b3);
             padding: 10px 15px;
             border-radius: 25px;
             text-align: center;
-            font-size: 0.9em;
-            color: #2c1810;
-            border: 2px solid #bd670b;
+            font-size: 14px;
+            color: #333;
+            border: 2px solid #ff9500;
             transition: all 0.3s ease;
         }
 
         .sabor-item:hover {
-            background: linear-gradient(45deg, #c56804, #c56804);
+            background: linear-gradient(45deg, #ff9500, #ff7700);
             color: white;
             transform: scale(1.05);
         }
 
         .contact-section {
-            background: linear-gradient(135deg, #2c1810 0%, #3d2817 100%);
+            background: linear-gradient(135deg, #74e6ba 0%, #056852 100%);
             color: white;
             padding: 40px;
             border-radius: 20px;
@@ -211,45 +196,171 @@
         }
 
         .contact-section h2 {
-            font-size: 2.5em;
+            font-size: 36px;
             margin-bottom: 20px;
-            color: #d4a574;
+            color: white;
         }
 
         .contact-section p {
-            font-size: 1.2em;
+            font-size: 18px;
             margin-bottom: 10px;
         }
 
-        .decorative-element {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.1), transparent);
+        /* Estilos para el botón de regreso */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #8B4513;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            color: #ff7700;
+        }
+
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 1.5s infinite;
+            transition: box-shadow 0.2s;
+        }
+        .whatsapp-float:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            background: #1ebe57;
+        }
+        .whatsapp-float img {
+            width: 38px;
+            height: 38px;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0);}
+            50% { transform: translateY(-18px);}
+        }
+
+        .footer-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .drinks-section, .delivery-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .drinks-section {
+            background: linear-gradient(135deg, #74e6ba 0%, #056852 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .delivery-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .delivery-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .phone-number {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
+            z-index: -1;
         }
 
-        .decorative-element:nth-child(1) {
-            top: 10%;
-            left: 5%;
-            animation: float 6s ease-in-out infinite;
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '🥟';
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.1;
+            animation: float-around 15s linear infinite;
         }
 
-        .decorative-element:nth-child(2) {
+        .floating-elements::before {
+            top: 20%;
+            left: 10%;
+            animation-delay: -5s;
+        }
+
+        .floating-elements::after {
             top: 70%;
             right: 10%;
-            animation: float 8s ease-in-out infinite reverse;
+            animation-delay: -10s;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
+        @keyframes float-around {
+            0% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5em;
+            body {
+                background: linear-gradient(135deg, #ff9500 0%, #ff7700 50%, #ff6600 100%);
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .menu-title {
+                font-size: 32px;
+                letter-spacing: 4px;
+            }
+            
+            .slogan {
+                font-size: 24px;
             }
             
             .products-grid {
@@ -259,21 +370,50 @@
             .product-card {
                 padding: 20px;
             }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                right: 15px;
+                bottom: 15px;
+            }
+            .whatsapp-float img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .floating-elements::before,
+            .floating-elements::after {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="decorative-element"></div>
-    <div class="decorative-element"></div>
+    <div class="floating-elements"></div>
+    
+    <!-- Botón de regreso al index -->
+    <a href="index.html" class="back-button" aria-label="Volver al inicio">
+        <span>←</span>
+    </a>
     
     <div class="container">
-        <div class="header">
-            <h1>
-                <img src="img/logo.png" alt="El Empastelao Logo" style="height: 70px; vertical-align: middle; margin-right: px;">
-                EL EMPASTELAO
-            </h1>
-            <p>Sabores auténticos en cada bocado</p>
-        </div>
+        <header class="header">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo El Empastelao" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="brand-name">EL EMPASTELAO</div>
+            <div class="slogan">"El antojo empieza aquí 🍴"</div>
+            <h1 class="menu-title">CATÁLOGO GOURMET</h1>
+        </header>
 
         <div class="products-grid">
             <!-- Mini Empanadas Section -->
@@ -355,146 +495,25 @@
             </div>
         </div>
 
-        <div class="contact-section">
-            <h2>📱 ¡Haz tu pedido!</h2>
-            <p>Contáctanos para disfrutar de nuestros deliciosos productos en tus eventos</p>
-            <p style="font-size: 1.4em; margin-top: 20px; color: #cf710d;">
-                <strong>El Empastelao - Sabor que conquista</strong>
-                <strong> | </strong>
-                <strong>Teléfono: 304-303-75-26</strong>
-                <style>
-                .whatsapp-float {
-                    display: inline-block;
-                    margin-left: 18px;
-                    vertical-align: middle;
-                    text-decoration: none;
-                    position: relative;
-                    top: 3px;
-                    animation: whatsapp-bounce 1.5s infinite;
-                }
-                .whatsapp-icon {
-                    width: 28px;
-                    height: 28px;
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-                .whatsapp-float:hover .whatsapp-icon svg {
-                    transform: scale(1.15) rotate(-10deg);
-                }
-                .whatsapp-icon svg {
-                    width: 100%;
-                    height: 100%;
-                    fill: #25D366;
-                    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-                    transition: transform 0.2s;
-                    display: block;
-                }
-                @keyframes whatsapp-bounce {
-                    0%, 100% { transform: translateY(0);}
-                    20% { transform: translateY(-8px);}
-                    40% { transform: translateY(-4px);}
-                    60% { transform: translateY(-10px);}
-                    80% { transform: translateY(-2px);}
-                }
-            </style>
-            <a href="https://wa.me/573043037526" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-                   <style>
-                .whatsapp-float {
-                    display: inline-block;
-                    margin-left: 18px;
-                    vertical-align: middle;
-                    text-decoration: none;
-                    position: relative;
-                    top: 3px;
-                    animation: whatsapp-bounce 1.5s infinite;
-                }
-                .whatsapp-icon {
-                    width: 50px;
-                    height: 50px;
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-                .whatsapp-float:hover .whatsapp-icon svg {
-                    transform: scale(1.15) rotate(-10deg);
-                }
-                .whatsapp-icon svg {
-                    width: 100%;
-                    height: 100%;
-                    fill: #25D366;
-                    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-                    transition: transform 0.2s;
-                    display: block;
-                }
-                @keyframes whatsapp-bounce {
-                    0%, 100% { transform: translateY(0);}
-                    20% { transform: translateY(-8px);}
-                    40% { transform: translateY(-4px);}
-                    60% { transform: translateY(-10px);}
-                    80% { transform: translateY(-2px);}
-                }
-            </style>
-            <a href="https://wa.me/573043037526" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-                <span class="whatsapp-icon">
-                    <svg viewBox="0 0 32 32">
-                        <path d="M16 3C9.373 3 4 8.373 4 15c0 2.646.865 5.09 2.338 7.09L4 29l7.145-2.31A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.5c-1.98 0-3.87-.57-5.47-1.65l-.39-.25-4.24 1.37 1.39-4.13-.26-.4A9.47 9.47 0 0 1 6.5 15c0-5.24 4.26-9.5 9.5-9.5s9.5 4.26 9.5 9.5-4.26 9.5-9.5 9.5zm5.13-7.14c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.43-2.25-1.37-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.3s.98 2.66 1.12 2.85c.14.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.21 1.24.18 1.7.11.52-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.18-.53-.32z"/>
-                    </svg>
-                </span>
-            </a></svg>
-                </span>
-            </a></svg>
-            <a href="https://www.instagram.com/elempastelao" target="_blank" class="instagram-float" aria-label="Instagram">
-                <span class="instagram-icon">
-                    <svg viewBox="0 0 448 512">
-                        <defs>
-                            <radialGradient id="ig-gradient" cx="30%" cy="107%" r="150%" fx="30%" fy="107%">
-                                <stop offset="0%" stop-color="#fdf497"/>
-                                <stop offset="5%" stop-color="#fdf497"/>
-                                <stop offset="45%" stop-color="#fd5949"/>
-                                <stop offset="60%" stop-color="#d6249f"/>
-                                <stop offset="90%" stop-color="#285AEB"/>
-                            </radialGradient>
-                        </defs>
-                        <rect x="32" y="32" width="384" height="448" rx="90" fill="url(#ig-gradient)"/>
-                        <path d="M224 144c-44.2 0-80 35.8-80 80s35.8 80 80 80 80-35.8 80-80-35.8-80-80-80zm0 132c-28.7 0-52-23.3-52-52s23.3-52 52-52 52 23.3 52 52-23.3 52-52 52zm85-136c0 10.5-8.5 19-19 19s-19-8.5-19-19 8.5-19 19-19 19 8.5 19 19zm76 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S371.3 33.7 336 32c-35.3-1.7-141.3-1.7-176.6 0-35.3 1.7-66.7 9.9-92.9 36.2S33.7 140.7 32 176c-1.7 35.3-1.7 141.3 0 176.6 1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2c35.3 1.7 141.3 1.7 176.6 0 35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 1.7-141.3 0-176.6zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5C109.1 33.7 178.9 36.3 212 36.3s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z" fill="#fff"/>
-                    </svg>
-                </span>
-            </a>
-            <style>
-            .instagram-float {
-                display: inline-block;
-                margin-right: 18px;
-                vertical-align: middle;
-                text-decoration: none;
-                position: relative;
-                top: 3px;
-                animation: instagram-bounce 1.5s infinite;
-            }
-            .instagram-icon {
-                width: 32px;
-                height: 32px;
-                display: inline-block;
-                vertical-align: middle;
-            }
-            .instagram-float:hover .instagram-icon svg {
-                transform: scale(1.15) rotate(10deg);
-            }
-            .instagram-icon svg {
-                width: 100%;
-                height: 100%;
-                transition: transform 0.2s;
-                display: block;
-            }
-            @keyframes instagram-bounce {
-                0%, 100% { transform: translateY(0);}
-                20% { transform: translateY(-10px);}
-                40% { transform: translateY(-5px);}
-                60% { transform: translateY(-12px);}
-                80% { transform: translateY(-3px);}
-            }
-            </style>
-                </a>
-            </p>
+        <div class="footer-section">
+            <div class="drinks-section">
+                <h3 class="section-title">📱 ¡Haz tu pedido!</h3>
+                <p>Contáctanos para disfrutar de nuestros deliciosos productos en tus eventos</p>
+                <div class="phone-number">+57 304 303 7526</div>
+            </div>
+
+            <div class="delivery-section">
+                <h3 class="section-title">EVENTOS Y CATERING</h3>
+                <div class="delivery-icon">🎉</div>
+                <p>Llevamos el sabor a tus eventos especiales</p>
+                <div class="phone-number">+57 304 303 7526</div>
+            </div>
         </div>
+        
+        <!-- Botón flotante de WhatsApp -->
+        <a href="https://wa.me/573043037526" class="whatsapp-float" target="_blank" aria-label="Chatea por WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+        </a>
     </div>
 </body>
 </html>

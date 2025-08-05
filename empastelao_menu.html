@@ -13,9 +13,28 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff9500 0%, #ff7700 100%);
+            background: linear-gradient(135deg, #ff9500 0%, #ff7700 50%, #ff6600 100%);
             min-height: 100vh;
             color: #333;
+            position: relative;
+        }
+
+        /* Animación de fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float-bg 10s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        @keyframes float-bg {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .container {
@@ -222,6 +241,41 @@
             animation: float 3s ease-in-out infinite;
             border-radius: 20px;
         }
+        .combo-image9::after {
+            content: '';
+            background-image:  url('img/combo5.png');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+        }
+        .combo-image10::after {
+            content: '';
+            background-image:  url('img/palitosdequeso.png');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            border-radius: 20px;
+        }
+        .combo-image11::after {
+            content: '';
+            background-image:  url('img/soloqueso.png');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            border-radius: 20px;
+        }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -352,7 +406,141 @@
             color: #ff7700;
         }
         
+        /* Estilos para la sección de aderezos */
+        .aderezos-section {
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .aderezos-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8B4513;
+            text-align: center;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .aderezos-subtitle {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .aderezos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .aderezo-card {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe4b3 100%);
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .aderezo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: #ff9500;
+        }
+
+        .aderezo-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(45deg, #ffb347, #ffa500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .aderezo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .aderezo-placeholder {
+            font-size: 25px;
+            display: none;
+        }
+
+        .aderezo-content {
+            flex: 1;
+        }
+
+        .aderezo-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .aderezo-description {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.3;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '🥟';
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.1;
+            animation: float-around 15s linear infinite;
+        }
+
+        .floating-elements::before {
+            top: 20%;
+            left: 10%;
+            animation-delay: -5s;
+        }
+
+        .floating-elements::after {
+            top: 70%;
+            right: 10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float-around {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+
         @media (max-width: 768px) {
+            body {
+                background: linear-gradient(135deg, #ff9500 0%, #ff7700 50%, #ff6600 100%);
+            }
+            
             .container {
                 padding: 15px;
             }
@@ -364,7 +552,6 @@
             
             .slogan {
                 font-size: 24px;
-
             }
             
             .combos-grid {
@@ -382,10 +569,57 @@
                 height: 45px;
                 font-size: 20px;
             }
+
+            .aderezos-section {
+                padding: 20px 15px;
+                margin: 20px 0;
+            }
+
+            .aderezos-title {
+                font-size: 20px;
+            }
+
+            .aderezos-subtitle {
+                font-size: 12px;
+            }
+
+            .aderezos-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .aderezo-card {
+                padding: 12px;
+                gap: 12px;
+            }
+
+            .aderezo-image {
+                width: 50px;
+                height: 50px;
+            }
+
+            .aderezo-placeholder {
+                font-size: 20px;
+            }
+
+            .aderezo-name {
+                font-size: 14px;
+            }
+
+            .aderezo-description {
+                font-size: 11px;
+            }
+
+            .floating-elements::before,
+            .floating-elements::after {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="floating-elements"></div>
+    
     <!-- Botón de regreso al index -->
     <a href="index.html" class="back-button" aria-label="Volver al inicio">
         <span>←</span>
@@ -438,11 +672,40 @@
                     <li>Mini empanada de papa 4</li>
                 </ul>
             </div>
+
+            <div class="combo-card">
+                <div class="price-tag">$13K</div>
+                <div class="combo-image combo-image11" style="position: relative;"></div>
+                <h2 class="combo-title">COMBO: SOLO QUESO</h2>
+                <p class="combo-description">¡Para los amantes del queso! Una explosión de sabor lácteo</p>
+                <ul class="combo-items">
+                    <li>3 palitos queso</li>
+                    <li>3 palito apanado</li>
+                    <li>4 empanada de queso</li>
+                </ul>
+            </div>
+
+            <div class="combo-card">
+                <div class="price-tag">$54K</div>
+                <div class="combo-image combo-image9"></div>
+                <h2 class="combo-title">Pa´ la farra (Extrafamiliar)</h2>
+                <p class="combo-description">¡Parce, este combo sí es una chimba de parche!</p>
+                <ul class="combo-items">
+                    <li>8 mini empanada papa</li>
+                    <li>5 mini empanada carne</li>
+                    <li>5 mini empanada queso</li>
+                    <li>5 butifarra res y pollo</li>
+                    <li>5 mini pastel pollo</li>
+                    <li>5 palitos de queso full</li>
+                    <li>5 palitos apanados</li>
+                    <li>2 Guandolos Original</li>
+                </ul>
+            </div>
             <div class="combo-card">
                 <div class="price-tag">$15K</div>
                 <div class="combo-image combo-image8"></div>
-                <h2 class="combo-title">¡El sabor de nuestra tierra para tus mañanas!</h2>
-                <p class="combo-description">Pa' invitar a desayunar</p>
+                <h2 class="combo-title">EL MAÑANERO PA' DESAYUNAR</h2>
+                <p class="combo-description">¡El sabor de nuestra tierra para tus mañanas!</p>
                 <ul class="combo-items">
                     <li>1 Areplatano con carne o pollo desmechado</li>
                     <li>2 Pasteles de pollo x 50 gramos</li>
@@ -480,6 +743,77 @@
                     <li>Full queso</li>
                     <li>Apanado con queso,platano maduro y bocadillo</li>
                 </ul>
+            </div>
+
+            <div class="combo-card">
+                <div class="price-tag">$45K</div>
+                <div class="combo-image combo-image11" style="position: relative;"></div>
+                <h2 class="combo-title">COMBO: EL PICA TODO</h2>
+                <p class="combo-description">¡El sabor del empastelao como vos querás!</p>
+                <ul class="combo-items">
+                    <li>Butifarras</li>
+                    <li>Pastel de pollo</li>
+                    <li>Mini pastel de pollo</li>
+                    <li>Mini empanadas carne</li>
+                    <li>Mini empanadas queso</li>
+                    <li>Mini empanadas papa</li>
+                    <li>Palitos de Queso</li>
+                    <li>Palitos apanados de queso con bocadillo y maduro</li>
+                    <li>Areplatano</li>
+                    <li>Guandolo Jamaica u Original</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Nueva sección de aderezos -->
+        <div class="aderezos-section">
+            <h2 class="aderezos-title">ADEREZOS DE LA CASA</h2>
+            <p class="aderezos-subtitle">¡Sazona tu experiencia con nuestros aderezos artesanales!</p>
+            
+            <div class="aderezos-grid">
+                <div class="aderezo-card">
+                    <div class="aderezo-image">
+                        <img src="img/aji-dulce.jpg" alt="Ají Dulce" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="aderezo-placeholder">🌶️</div>
+                    </div>
+                    <div class="aderezo-content">
+                        <h3 class="aderezo-name">Ají Dulce</h3>
+                        <p class="aderezo-description">El toque perfecto para realzar sabores</p>
+                    </div>
+                </div>
+
+                <div class="aderezo-card">
+                    <div class="aderezo-image">
+                        <img src="img/aji-picante.jpg" alt="Ají Picante" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="aderezo-placeholder">🔥</div>
+                    </div>
+                    <div class="aderezo-content">
+                        <h3 class="aderezo-name">Ají Picante</h3>
+                        <p class="aderezo-description">Para los que aman el picante intenso</p>
+                    </div>
+                </div>
+
+                <div class="aderezo-card">
+                    <div class="aderezo-image">
+                        <img src="img/aji-mango.jpg" alt="Ají de Mango" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="aderezo-placeholder">🥭</div>
+                    </div>
+                    <div class="aderezo-content">
+                        <h3 class="aderezo-name">Ají de Mango</h3>
+                        <p class="aderezo-description">Dulce y picante, una combinación única</p>
+                    </div>
+                </div>
+
+                <div class="aderezo-card">
+                    <div class="aderezo-image">
+                        <img src="img/guacamole.jpg" alt="Guacamole" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="aderezo-placeholder">🥑</div>
+                    </div>
+                    <div class="aderezo-content">
+                        <h3 class="aderezo-name">Guacamole</h3>
+                        <p class="aderezo-description">Cremoso y fresco, el complemento ideal</p>
+                    </div>
+                </div>
             </div>
         </div>
 
