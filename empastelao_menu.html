@@ -278,7 +278,7 @@
         }
         .combo-image12::after {
             content: '';
-            background-image:  url('img/panzerotti.png');
+            background-image:  url('img/minihamburguesa.png');
             background-size: cover;
             background-position: center;
             width: 100%;
@@ -292,6 +292,75 @@
         /* Estilo específico para la card de Maruchan - más alargada */
         .combo-image12 {
             height: 370px !important; /* Aumentamos la altura de 200px a 280px */
+        }
+
+        /* Efectos especiales para resaltar la Mini hamburguesa artesanal */
+        .featured-burger {
+            animation: highlight-pulse 2s ease-in-out infinite;
+            border: 3px solid #ff6b35;
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.6), 0 15px 40px rgba(0,0,0,0.3);
+            transform: scale(1.05);
+            z-index: 10;
+            position: relative;
+        }
+
+        .featured-burger::before {
+            background: linear-gradient(90deg, #ff6b35, #ff8c42, #ff6b35);
+            height: 8px;
+            animation: gradient-shift 3s ease-in-out infinite;
+        }
+
+        .featured-burger .price-tag {
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+            font-size: 28px;
+            font-weight: 900;
+            animation: price-bounce 1.5s ease-in-out infinite;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+        }
+
+        .featured-burger .combo-title {
+            color: #ff6b35;
+            font-size: 26px;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: title-glow 2s ease-in-out infinite alternate;
+        }
+
+        .featured-burger .combo-image12::after {
+            animation: image-zoom 4s ease-in-out infinite, float 3s ease-in-out infinite;
+        }
+
+        /* Keyframes para los efectos especiales */
+        @keyframes highlight-pulse {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(255, 107, 53, 0.6), 0 15px 40px rgba(0,0,0,0.3);
+                transform: scale(1.05);
+            }
+            50% { 
+                box-shadow: 0 0 50px rgba(255, 107, 53, 0.9), 0 20px 50px rgba(0,0,0,0.4);
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background: linear-gradient(90deg, #ff6b35, #ff8c42, #ff6b35); }
+            50% { background: linear-gradient(90deg, #ff8c42, #ff6b35, #ff8c42); }
+        }
+
+        @keyframes price-bounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-5px) scale(1.1); }
+        }
+
+        @keyframes title-glow {
+            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.2), 0 0 10px rgba(255, 107, 53, 0.5); }
+            100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.2), 0 0 20px rgba(255, 107, 53, 0.8); }
+        }
+
+        @keyframes image-zoom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
@@ -759,6 +828,16 @@
                 <ul class="combo-items">
                     <li>Full queso</li>
                     <li>Apanado con queso,platano maduro y bocadillo</li>
+                </ul>
+            </div>
+            <div class="combo-card featured-burger">
+                <div class="price-tag">$ 6000</div>
+                <div class="combo-image combo-image12" style="position: relative;"></div>
+                <h2 class="combo-title">Nuevo Mini hamburguesa artesanal</h2>
+                <p class="combo-description">Pa'que pruebe algo bueno para el paladar</p>
+                <ul class="combo-items">
+                    <li>Carne 60gr,pan artesanal,tocineta,pepinillo,tomate,salsa especial base,queso,aderezos de la casa a escogencia</la>
+                    
                 </ul>
             </div>
             <div class="combo-card">
