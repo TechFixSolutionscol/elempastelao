@@ -4,7 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Empastelao - Menú Combos</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/app.js" defer></script>
     <style>
+        .add-to-cart-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-top: 15px;
+            width: 100%;
+            text-transform: uppercase;
+        }
+
+        .add-to-cart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+        }
+
+        .add-to-cart-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -734,7 +764,7 @@
         </header>
 
         <div class="combos-grid">
-            <div class="combo-card">
+            <div class="combo-card" data-id="combo-1-pal-antojoa" data-name="Combo 1 - Pa'l Antojao" data-price="12000">
                 <div class="price-tag">$12K</div>
                 <div class="combo-image combo-image1"></div>
                 <h2 class="combo-title">Combo 1 - Pa'l Antojao</h2>
@@ -744,9 +774,10 @@
                     <li>Mini empanada queso 3 und</li>
                     <li>Mini empanada carne 3 und</li>
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
 
-            <div class="combo-card">
+            <div class="combo-card" data-id="combo-2-el-pecaito" data-name="Combo 2 - El Pecaito" data-price="11000">
                 <div class="price-tag">$11K</div>
                 <div class="combo-image combo-image2"></div>
                 <h2 class="combo-title">Combo 2 - El Pecaito</h2>
@@ -756,9 +787,10 @@
                     <li>Mini empanada papa 3 und</li>
                     <li>Mini empanada carne 3 und</li>
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
 
-            <div class="combo-card">
+            <div class="combo-card" data-id="combo-3-familiar-pa-la-gallada" data-name="Combo 3 - Familiar Pa' la Gallada" data-price="26000">
                 <div class="price-tag">$26K</div>
                 <div class="combo-image combo-image3"></div>
                 <h2 class="combo-title">Combo 3 - Familiar Pa' la Gallada</h2>
@@ -769,9 +801,10 @@
                     <li>Mini empanada carne 3</li>
                     <li>Mini empanada de papa 4</li>
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
 
-            <div class="combo-card">
+            <div class="combo-card" data-id="combo-solo-queso" data-name="COMBO: SOLO QUESO" data-price="14000">
                 <div class="price-tag">$14K</div>
                 <div class="combo-image combo-image11" style="position: relative;"></div>
                 <h2 class="combo-title">COMBO: SOLO QUESO</h2>
@@ -781,9 +814,10 @@
                     <li>3 palitos apanados de queso con bocadillo y maduro</li>
                     <li>4 empanadas de queso</li>
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
 
-            <div class="combo-card">
+            <div class="combo-card" data-id="pa-la-farra-extrafamiliar" data-name="Pa´ la farra (Extrafamiliar)" data-price="60000">
                 <div class="price-tag">$60K</div>
                 <div class="combo-image combo-image9"></div>
                 <h2 class="combo-title">Pa´ la farra (Extrafamiliar)</h2>
@@ -798,8 +832,9 @@
                     <li>5 palitos apanados</li>
                     <li>2 Guandolos Original</li>
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
-            <div class="combo-card">
+            <div class="combo-card" data-id="el-mananero-pa-desayunar" data-name="EL MAÑANERO PA' DESAYUNAR" data-price="17000">
                 <div class="price-tag">$17K</div>
                 <div class="combo-image combo-image8"></div>
                 <h2 class="combo-title">EL MAÑANERO PA' DESAYUNAR</h2>
@@ -810,8 +845,9 @@
                     <li>2 Butifarras de pollo y res</li>
                     <li>1 Guandolo Original</li>
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
-            <div class="combo-card">
+            <div class="combo-card" data-id="areplatano" data-name="AREPLATANO" data-price="6000">
                 <div class="price-tag">$6k</div>
                 <div class="combo-image combo-image4" style="position: relative;"></div>
                 <h2 class="combo-title">AREPLATANO</h2>
@@ -821,8 +857,9 @@
                     <li>Aderezos de la casa a escogencia</li>
                     <li>Proteina pollo ,desmechada res o mixta</li>
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
-            <div class="combo-card">
+            <div class="combo-card" data-id="butifarra" data-name="BUTIFARRA" data-price="1000">
                 <div class="price-tag">$ 1k</div>
                 <div class="combo-image combo-image5" style="position: relative;"></div>
                 <h2 class="combo-title">BUTIFARRA</h2>
@@ -831,8 +868,9 @@
                     <li>Res y pollo</li>
                     <li>Aderezos de la casa a escogencia</li>
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
-            <div class="combo-card">
+            <div class="combo-card" data-id="palitos-de-queso" data-name="PALITOS DE QUESO" data-price="1500">
                 <div class="price-tag">$ 1.5k</div>
                 <div class="combo-image combo-image7" style="position: relative;"></div>
                 <h2 class="combo-title">PALITOS DE QUESO</h2>
@@ -841,8 +879,9 @@
                     <li>Full queso</li>
                     <li>Apanado con queso,platano maduro y bocadillo</li>
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
-            <div class="combo-card featured-burger">
+            <div class="combo-card featured-burger" data-id="mini-hamburguesa-artesanal" data-name="Nuevo Mini hamburguesa artesanal" data-price="6000">
                 <div class="price-tag">$ 6000</div>
                 <div class="combo-image combo-image12" style="position: relative;"></div>
                 <h2 class="combo-title">Nuevo Mini hamburguesa artesanal</h2>
@@ -851,8 +890,9 @@
                     <li>Carne 60gr,pan artesanal,tocineta,pepinillo,tomate,salsa especial base,queso,aderezos de la casa a escogencia</la>
                     
                 </ul>
+                <button class="add-to-cart-btn">Agregar al pedido</button>
             </div>
-            <div class="combo-card">
+            <div class="combo-card" data-id="proximamente-panzerottis" data-name="Proximamente panzerottis" data-price="0">
                 <div class="price-tag">$ 0</div>
                 <div class="combo-image combo-image13" style="position: relative;"></div>
                 <h2 class="combo-title">Proximamente panzerottis</h2>
@@ -860,8 +900,9 @@
                 <ul class="combo-items">
                     <li>Disponibles proximamente</li>
                 </ul>
+                <button class="add-to-cart-btn" disabled>No disponible</button>
             </div>
-            <div class="combo-card">
+            <div class="combo-card" data-id="combo-el-pica-todo" data-name="COMBO: EL PICA TODO" data-price="0">
                 <div class="price-tag">$$$$</div>
                 <div class="combo-image combo-image11" style="position: relative;"></div>
                 <h2 class="combo-title">COMBO: EL PICA TODO</h2>
@@ -878,6 +919,7 @@
                     <li>Areplatano</li>
                     <li>Guandolo Jamaica u Original</li>
                 </ul>
+                <button class="add-to-cart-btn" disabled>Llamar para pedir</button>
             </div>
         </div>
 
@@ -961,7 +1003,7 @@
             .whatsapp-float {
                 position: fixed;
                 bottom: 30px;
-                right: 30px;
+                left: 30px;
                 z-index: 1000;
                 width: 65px;
                 height: 65px;
@@ -990,7 +1032,7 @@
                 .whatsapp-float {
                     width: 50px;
                     height: 50px;
-                    right: 15px;
+                    left: 15px;
                     bottom: 15px;
                 }
                 .whatsapp-float img {
@@ -1002,5 +1044,52 @@
             </div>
         </div>
     </div>
+
+    <!-- Carrito de Compras Flotante -->
+    <div class="cart-container" id="cart-container">
+        <div class="cart-header">
+            <h3>Mi Pedido 🛒</h3>
+            <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+        </div>
+        <div class="cart-body">
+            <div id="cart-items" class="cart-items">
+                <!-- Los productos del carrito se insertarán aquí -->
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <strong>Total:</strong>
+                    <span id="cart-total">$0</span>
+                </div>
+            </div>
+            <div class="customer-form">
+                <h4>Tus Datos</h4>
+                <div class="form-group">
+                    <input type="text" id="client-name" placeholder="Nombre completo *" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="client-address" placeholder="Dirección de entrega *" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="client-neighborhood" placeholder="Barrio *" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="client-notes" placeholder="Notas adicionales (ej: sin cebolla, apto, etc.)"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <button class="send-order-btn" id="send-order-btn">
+                <span>Enviar pedido por WhatsApp</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </button>
+        </div>
+    </div>
+    <div class="cart-backdrop" id="cart-backdrop"></div>
+
+    <!-- Botón para abrir el carrito -->
+    <button class="cart-fab" id="cart-fab">
+        <span class="cart-fab-icon">🛍️</span>
+        <span class="cart-fab-count" id="cart-fab-count">0</span>
+    </button>
 </body>
 </html>
