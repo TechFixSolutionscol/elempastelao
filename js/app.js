@@ -128,6 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCart();
     };
 
+    const isVideoURL = (url) => {
+        if (!url) return false;
+        const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov'];
+        const lowerUrl = url.toLowerCase();
+        return videoExtensions.some(ext => lowerUrl.includes(ext)) || lowerUrl.includes('drive.google.com/file/d/') && lowerUrl.includes('/view');
+    };
+
     const createCardElement = (p) => {
         const card = document.createElement('article');
         card.className = 'combo-card';
@@ -135,11 +142,22 @@ document.addEventListener('DOMContentLoaded', () => {
         card.dataset.name = p.nombre;
         card.dataset.price = p.precio;
 
-        // Imagen con fallback
-        const img = document.createElement('img');
-        img.src = p.imagen || 'img/placeholder.png';
-        img.alt = p.nombre;
-        img.loading = 'lazy';
+        // Media element (Image or Video)
+        let media;
+        if (isVideoURL(p.imagen)) {
+            media = document.createElement('video');
+            media.src = p.imagen;
+            media.muted = true;
+            media.loop = true;
+            media.playsInline = true;
+            media.autoplay = true; // Auto-play by default for menu items
+            media.setAttribute('muted', ''); // Safari fix
+        } else {
+            media = document.createElement('img');
+            media.src = p.imagen || 'img/placeholder.png';
+            media.alt = p.nombre;
+            media.loading = 'lazy';
+        }
 
         const title = document.createElement('div'); title.className = 'title'; title.textContent = p.nombre;
         const desc = document.createElement('div'); desc.className = 'desc'; desc.textContent = p.descripcion;
@@ -160,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         actions.appendChild(price); actions.appendChild(btn);
-        card.appendChild(img); card.appendChild(title); card.appendChild(desc); card.appendChild(actions);
+        card.appendChild(media); card.appendChild(title); card.appendChild(desc); card.appendChild(actions);
         return card;
     };
 
