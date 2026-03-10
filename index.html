@@ -1,378 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Empastelao - Inicio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta name="description"
+        content="El Empastelao - Modern Street Food. Las mejores empanadas, arepas y comida caribeña desde 2010.">
+    <meta property="og:title" content="El Empastelao - Modern Street Food">
+    <meta property="og:description" content="Sabor caribeño premium. Haz tu pedido online hoy mismo.">
+    <meta property="og:image" content="img/hero_food.png">
+    <meta property="og:type" content="website">
+    <title>El Empastelao - Modern Street Food</title>
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff9500 0%, #ff7700 50%, #ff6600 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Animación de fondo */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            animation: float-bg 10s ease-in-out infinite;
-        }
-
-        @keyframes float-bg {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 60px 40px;
-            border-radius: 30px;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            z-index: 1;
-            animation: slideIn 1s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
-            border-radius: 50%;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: pulse 2s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shine 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes shine {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .brand-name {
-            font-size: 48px;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 15px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-            letter-spacing: 2px;
-        }
-
-        .slogan {
-            font-size: 24px;
-            color: #44310d;
-            margin-bottom: 40px;
-            font-style: italic;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .description {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 50px;
-            line-height: 1.6;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .buttons-container {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-button {
-            padding: 20px 40px;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-            min-width: 200px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .nav-button:hover::before {
-            left: 100%;
-        }
-
-        .menu-button {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-        }
-
-        .menu-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.4);
-        }
-
-        .events-button {
-            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
-            color: white;
-        }
-
-        .events-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(220, 53, 69, 0.4);
-        }
-
-        .button-icon {
-            font-size: 24px;
-            margin-right: 10px;
-            display: inline-block;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-5px); }
-            60% { transform: translateY(-3px); }
-        }
-
-        .footer-info {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-info {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .phone {
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .phone:hover {
-            color: #ffe4b3;
-        }
-
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .floating-elements::before,
-        .floating-elements::after {
-            content: '🥟';
-            position: absolute;
-            font-size: 30px;
-            opacity: 0.1;
-            animation: float-around 15s linear infinite;
-        }
-
-        .floating-elements::before {
-            top: 20%;
-            left: 10%;
-            animation-delay: -5s;
-        }
-
-        .floating-elements::after {
-            top: 70%;
-            right: 10%;
-            animation-delay: -10s;
-        }
-
-        @keyframes float-around {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-            100% { transform: translateY(0px) rotate(360deg); }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px;
-                margin: 20px;
-            }
-            
-            .brand-name {
-                font-size: 36px;
-                text-shadow: white 2px 2px 4px, rgba(236, 18, 18, 0.5) -2px -2px 4px;
-            }
-            
-            .slogan {
-                font-size: 20px;
-            }
-            
-            .description {
-                font-size: 16px;
-            }
-            
-            .buttons-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .nav-button {
-                padding: 15px 30px;
-                font-size: 18px;
-                min-width: auto;
-                width: 100%;
-            }
-            
-            .logo {
-                width: 100px;
-                height: 100px;
-                font-size: 40px;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Lato:wght@400;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
+
 <body>
-    <div class="floating-elements"></div>
-    
-    <div class="container">
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo El Empastelao" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="navbar-brand">El <span>Empastelao</span></a>
+        <ul class="nav-links">
+            <li><a href="#especialidades" class="nav-link">Especialidades</a></li>
+            <li><a href="empastelao_menu.html" class="nav-link">Menú</a></li>
+            <li><a href="menueventos.html" class="nav-link">Eventos</a></li>
+            <li><a href="empastelao_menu.html" class="cta-nav-btn">🛒 Pedir Online</a></li>
+            <li><a href="admin.html" class="nav-link">Administración</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">✦ Picadería Premium</span>
+            <h1>Donde el antojo no tiene espera</h1>
+            <p class="hero-tagline">Sabor caribeño que abraza el alma</p>
+            <p>Comida al paso elaborada con ingredientes frescos cada mañana. Empanadas, arepas y combos diseñados para
+                deleitar tu paladar.</p>
+            <div class="hero-buttons">
+                <a href="empastelao_menu.html" class="btn-primary">Ver Menú Completo</a>
+                <a href="https://wa.me/573043037526" target="_blank" class="btn-secondary">Pedir por WhatsApp</a>
+            </div>
         </div>
-        
-        <h1 class="brand-name">EL EMPASTELAO</h1>
-        
-        <p class="slogan">"El antojo empieza aquí"</p>
-        
-        <p class="description">
-            Bienvenido a la casa del sabor auténtico. Donde cada bocado es una explosión de tradición y cada empanada cuenta una historia de pasión culinaria.
-        </p>
-        
-        <div class="buttons-container">
-            <a href="empastelao_menu.html" class="nav-button menu-button">
-                <span class="button-icon">🍽️</span>
-                Nuestro Menú
-            </a>
-            
-            <a href="menueventos.html" class="nav-button events-button">
-                <span class="button-icon">🎉</span>
-                Eventos
-            </a>
+        <div class="hero-visual">
+            <img src="img/hero_food.png" alt="Empastelao Gourmet" class="hero-img">
+            <div class="hero-badges-float">
+                <div class="badge-float">
+                    <span class="badge-emoji">⭐</span>
+                    <strong>4.9/5</strong>
+                </div>
+                <div class="badge-float">
+                    <span class="badge-emoji">🕐</span>
+                    <strong>Sabor inmediato</strong>
+                </div>
+                <div class="badge-float">
+                    <span class="badge-emoji">🌿</span>
+                    <strong>100% Natural</strong>
+                </div>
+            </div>
         </div>
-        
-        <div class="footer-info">
-            <p class="contact-info">¿Tienes antojo? ¡Llámanos!</p>
-            <a href="tel:+573043037526" class="phone">📞 +57 304 303 7526</a>
-            </a>
-            <style>
-                .whatsapp-float {
-                    display: inline-block;
-                    margin-left: 18px;
-                    vertical-align: middle;
-                    text-decoration: none;
-                    position: relative;
-                    top: 3px;
-                    animation: whatsapp-bounce 1.5s infinite;
-                }
-                .whatsapp-icon {
-                    width: 50px;
-                    height: 50px;
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-                .whatsapp-float:hover .whatsapp-icon svg {
-                    transform: scale(1.15) rotate(-10deg);
-                }
-                .whatsapp-icon svg {
-                    width: 100%;
-                    height: 100%;
-                    fill: #25D366;
-                    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-                    transition: transform 0.2s;
-                    display: block;
-                }
-                @keyframes whatsapp-bounce {
-                    0%, 100% { transform: translateY(0);}
-                    20% { transform: translateY(-8px);}
-                    40% { transform: translateY(-4px);}
-                    60% { transform: translateY(-10px);}
-                    80% { transform: translateY(-2px);}
-                }
-            </style>
-            <a href="https://wa.me/573043037526" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-                <span class="whatsapp-icon">
-                    <svg viewBox="0 0 32 32">
-                        <path d="M16 3C9.373 3 4 8.373 4 15c0 2.646.865 5.09 2.338 7.09L4 29l7.145-2.31A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.5c-1.98 0-3.87-.57-5.47-1.65l-.39-.25-4.24 1.37 1.39-4.13-.26-.4A9.47 9.47 0 0 1 6.5 15c0-5.24 4.26-9.5 9.5-9.5s9.5 4.26 9.5 9.5-4.26 9.5-9.5 9.5zm5.13-7.14c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.43-2.25-1.37-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.3s.98 2.66 1.12 2.85c.14.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.21 1.24.18 1.7.11.52-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.18-.53-.32z"/>
-                    </svg>
-                </span>
-            </a></svg>
-        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+        <div class="trust-item">🥟 Recién Hecho</div>
+        <div class="trust-item">🌿 Ingredientes Frescos</div>
+        <div class="trust-item">🍖 Sabor Tradicional</div>
+        <div class="trust-item">❤️ Clientes Felices</div>
     </div>
+
+    <!-- ESPECIALIDADES -->
+    <section class="specialties-section" id="especialidades">
+        <span class="section-subtitle">Nuestros favoritos</span>
+        <h2>Lo que nos hace únicos</h2>
+        <div class="specialties-grid">
+            <div class="specialty-flip">
+                <div class="specialty-inner">
+                    <div class="specialty-front">
+                        <div class="emoji-icon">🥟</div>
+                        <h3 class="specialty-title">Empanada Solo Queso</h3>
+                    </div>
+                    <div class="specialty-back">
+                        <h3 class="specialty-title">Queso Premium</h3>
+                        <p class="specialty-desc">Empanada frita recién hecha, rellena de queso derretido de alta
+                            calidad.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="specialty-flip">
+                <div class="specialty-inner">
+                    <div class="specialty-front">
+                        <div class="emoji-icon">🍌</div>
+                        <h3 class="specialty-title">Areplatano</h3>
+                    </div>
+                    <div class="specialty-back">
+                        <h3 class="specialty-title">Receta Maestra</h3>
+                        <p class="specialty-desc">Arepa de plátano maduro rellena, el equilibrio perfecto entre dulce y
+                            salado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="specialty-flip">
+                <div class="specialty-inner">
+                    <div class="specialty-front">
+                        <div class="emoji-icon">🍖</div>
+                        <h3 class="specialty-title">Butifarra</h3>
+                    </div>
+                    <div class="specialty-back">
+                        <h3 class="specialty-title">Auténtico Sabor</h3>
+                        <p class="specialty-desc">Carnes seleccionadas y sazonadas con el toque secreto de la casa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">5.000+</div>
+                <div class="stat-label">Clientes Mensuales</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">13+</div>
+                <div class="stat-label">Años de Tradición</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.9★</div>
+                <div class="stat-label">Valoración Media</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>El Empastelao</h3>
+                <p>Donde la tradición caribeña se encuentra con la excelencia culinaria.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Vínculos Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="empastelao_menu.html" class="footer-link">Menú</a></li>
+                    <li><a href="menueventos.html" class="footer-link">Eventos</a></li>
+                    <li><a href="#especialidades" class="footer-link">Especialidades</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul class="footer-links">
+                    <li><a href="tel:+573043037526" class="footer-link">📞 +57 304 303 7526</a></li>
+                    <li><a href="https://wa.me/573043037526" target="_blank" class="footer-link">📱 WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-copyright">
+            © 2024 El Empastelao. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Navbar effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
+
 </html>

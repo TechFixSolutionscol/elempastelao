@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - El Empastelao</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+        :root {
+            --admin-primary: #F07820;
+            --admin-bg: #f8f9fa;
+        }
+
+        body {
+            background: var(--admin-bg);
+            font-family: 'Lato', sans-serif;
+        }
+
+        .admin-nav {
+            background: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .btn-add {
+            background: var(--admin-primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 2px solid #eee;
+            color: #666;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+
+        .prod-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .status-active {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-inactive {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-edit {
+            color: #2196f3;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-delete {
+            color: #f44336;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        #login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="login-overlay">
+        <div class="card" style="width: 320px; text-align: center;">
+            <h2 style="font-family: 'Playfair Display'; margin-bottom: 20px;">Acceso Admin</h2>
+            <input type="password" id="admin-pass" placeholder="Contraseña" style="margin-bottom: 15px;">
+            <button class="btn-primary" onclick="checkAuth()" style="width: 100%;">Entrar</button>
+        </div>
+    </div>
+
+    <nav class="admin-nav">
+        <div class="navbar-brand" style="margin:0; font-size: 20px;">Admin <span>Empastelao</span></div>
+        <button onclick="logout()" style="background:none; border:none; color:#666; cursor:pointer;">Cerrar
+            Sesión</button>
+    </nav>
+
+    <div class="admin-container">
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2 style="font-family: 'Playfair Display'; margin: 0;">Gestión de Productos</h2>
+                <button class="btn-add" onclick="openModal()">+ Nuevo Producto</button>
+            </div>
+
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-products-list">
+                    <!-- Products will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Edit/Add Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Editar Producto</h3>
+            <form id="product-form">
+                <input type="hidden" id="prod-id">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="prod-nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <textarea id="prod-desc" rows="3"></textarea>
+                </div>
+                <div class="form-group" style="display: flex; gap: 15px;">
+                    <div style="flex: 1;">
+                        <label>Precio ($)</label>
+                        <input type="number" id="prod-precio" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Destacado</label>
+                        <select id="prod-destacado">
+                            <option value="false">No</option>
+                            <option value="true">Sí</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Imagen</label>
+                    <div style="margin-bottom: 10px; text-align: center;">
+                        <img id="modal-img-preview" src="img/placeholder.png"
+                            style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px; border: 2px solid #eee;">
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="prod-imagen" placeholder="URL o sube una imagen"
+                            oninput="document.getElementById('modal-img-preview').src = this.value">
+                        <input type="file" id="file-upload" style="display:none;" onchange="handleFileUpload(this)">
+                        <button type="button" id="btn-upload-trigger"
+                            onclick="document.getElementById('file-upload').click()" class="btn-add"
+                            style="font-size: 12px; white-space: nowrap;">Subir Foto</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Activo</label>
+                    <select id="prod-activo">
+                        <option value="true">Activo</option>
+                        <option value="false">Inactivo</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="button" class="btn-add" style="background:#666; flex:1;"
+                        onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn-add" style="flex:1;">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+[
+  {
+    "id": "combo-1-pal-antojoa",
+    "nombre": "Combo 1 - Pa'l Antojao",
+    "descripcion": "Pa' esos que no aguantan el antojo ni cinco",
+    "precio": 15000,
+    "imagen": "img/combo1.jpg",
+    "destacado": false,
+    "activo": true
+  },
+  {
+    "id": "combo-2-el-pecaito",
+    "nombre": "Combo 2 - El Pecaito",
+    "descripcion": "Pa' picar sin remordimiento, pues mijo",
+    "precio": 14000,
+    "imagen": "img/combo2.jpg",
+    "destacado": false,
+    "activo": true
+  },
+  {
+    "id": "combo-3-familiar-pa-la-gallada",
+    "nombre": "Combo 3 - Familiar Pa' la Gallada",
+    "descripcion": "Pa' que todos coman sabroso sin pelear por el último",
+    "precio": 27000,
+    "imagen": "img/combo3.jpg",
+    "destacado": false,
+    "activo": true
+  },
+  {
+    "id": "combo-solo-queso",
+    "nombre": "COMBO: SOLO QUESO",
+    "descripcion": "¡Para los amantes del queso! Una explosión de sabor lácteo",
+    "precio": 16000,
+    "imagen": "img/soloqueso.png",
+    "destacado": false,
+    "activo": true
+  },
+  {
+    "id": "pa-la-farra-extrafamiliar",
+    "nombre": "Pa´ la farra (Extrafamiliar)",
+    "descripcion": "¡Parce, este combo sí es una chimba de parche!",
+    "precio": 60000,
+    "imagen": "img/combo5.png",
+    "destacado": true,
+    "activo": true
+  },
+  {
+    "id": "el-mananero-pa-desayunar",
+    "nombre": "EL MAÑANERO PA' DESAYUNAR",
+    "descripcion": "¡El sabor de nuestra tierra para tus mañanas!",
+    "precio": 17000,
+    "imagen": "img/mananero.png",
+    "destacado": false,
+    "activo": true
+  },
+  {
+    "id": "areplatano",
+    "nombre": "AREPLATANO",
+    "descripcion": "Pa'Mecatear a cualquier hora",
+    "precio": 6000,
+    "imagen": "img/areplatano.png",
+    "destacado": false,
+    "activo": true
+  },
+  {
+    "id": "butifarra",
+    "nombre": "BUTIFARRA",
+    "descripcion": "Pa'picar sin remordimiento, pues mijo",
+    "precio": 1000,
+    "imagen": "img/butifarras.png",
+    "destacado": false,
+    "activo": true
+  },
+  {
+    "id": "palitos-de-queso",
+    "nombre": "PALITOS DE QUESO",
+    "descripcion": "Pa'saborear en cualquier momento",
+    "precio": 1500,
+    "imagen": "img/palitosdequeso.png",
+    "destacado": false,
+    "activo": true
+  },
+
+  {
+    "id": "combo-el-pica-todo",
+    "nombre": "COMBO: EL PICA TODO",
+    "descripcion": "¡El sabor del empastelao como vos querás! el precio segun el tamaño de la orden",
+    "precio": 0,
+    "imagen": "img/soloqueso.png",
+    "destacado": false,
+    "activo": false
+  }
+  
+]
